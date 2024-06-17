@@ -1,4 +1,4 @@
-SELECT DISTINCT name
+SELECT DISTINCT a.name
 FROM authors a,
     (SELECT a2.conference, a2.year
     FROM authors a2
