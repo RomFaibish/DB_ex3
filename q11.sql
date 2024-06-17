@@ -4,8 +4,11 @@ WITH conference_amount AS (
     GROUP BY conference
 )
 SELECT DISTINCT name
-FROM authors
-EXCEPT
-SELECT DISTINCT a.name
-FROM authors a, conference_amount ca
-WHERE a.conference = ca.conference AND ca.conferenceCount > 15;
+FROM(
+    SELECT name
+    FROM authors
+    EXCEPT
+    SELECT a.name
+    FROM authors a, conference_amount ca
+    WHERE a.conference = ca.conference AND ca.conferenceCount > 15)
+ORDER BY name
