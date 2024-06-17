@@ -5,5 +5,5 @@ FROM authors a,
     WHERE name = 'Omri Abend') o
 WHERE a.conference = o.conference and a.year = o.year
 GROUP BY a.name
-HAVING count(*) > count(o.conference)
+HAVING count(*) = count(o.conference)
 ORDER BY name;
