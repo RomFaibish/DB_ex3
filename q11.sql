@@ -8,4 +8,4 @@ FROM authors
 EXCEPT
 SELECT DISTINCT a.name
 FROM authors a, conference_amount ca
-WHERE a.conference = ca.conference AND ca.conferenceCount > 15
+WHERE a.conference = ca.conference AND ca.conferenceCount > 15;
