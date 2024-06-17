@@ -1,5 +1,5 @@
 SELECT a.name
 FROM authors a
-WHERE a.name NOT IN (SELECT ac.name FROM authors natural join conferences ac
+WHERE a.name NOT IN (SELECT ac.name FROM authors a2 natural join conferences ac
 where ac.year>1980 or ac.area != 'theory')
 ORDER BY a.name;
