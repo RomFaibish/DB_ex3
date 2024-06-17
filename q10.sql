@@ -17,6 +17,7 @@ WITH author_area_total AS(
     )
 SELECT a1.year, a1.name
 FROM author_area_total a1
+where a1.year >= 2021
 GROUP BY year, name
 HAVING SUM(a1.areaCount)>=ALL(SELECT SUM(a2.areaCount) FROM author_area_total a2 WHERE a1.year=a2.year GROUP BY year,name)
 ORDER BY a1.year, a1.name;
