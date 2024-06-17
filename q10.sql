@@ -1,4 +1,4 @@
-WITH author_year_total(
+WITH author_year_total AS(
     SELECT name, year, SUM(totalcount) AS yearCount
     FROM authors
     GROUP BY name, year
