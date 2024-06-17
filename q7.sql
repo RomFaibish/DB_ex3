@@ -5,4 +5,6 @@ FROM authors a,
     WHERE a2.name = 'Omri Abend') o
 WHERE a.conference = o.conference and o.year = a.year
 GROUP BY name
-HAVING count(DISTINCT conference) = count(o.conference)
+HAVING count(*) >= ALL(SELECT count(*)
+                            FROM authors a2
+                            WHERE a2.name = 'Omri Abend')
