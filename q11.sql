@@ -10,5 +10,5 @@ FROM(
     EXCEPT
     SELECT a.name
     FROM authors a, conference_amount ca
-    WHERE a.conference = ca.conference AND ca.conferenceCount > 15)
-ORDER BY name
+    WHERE a.conference = ca.conference AND ca.conferenceCount > 15) T
+ORDER BY name;
