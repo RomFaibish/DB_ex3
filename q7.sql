@@ -1,5 +1,5 @@
 SELECT DISTINCT M.name
-froM (SELECT name, CONFERENCE, YEAR
+froM (SELECT a.name, a.conference, year
 FROM authors a,
     (SELECT a2.conference, a2.year
     FROM authors a2
