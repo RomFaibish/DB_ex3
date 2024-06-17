@@ -1,3 +1,4 @@
+SELECT country,
 SELECT country,count(*) AS institutionCount
 FROM institutions
 GROUP BY country
