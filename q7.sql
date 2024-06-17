@@ -6,4 +6,4 @@ FROM authors a,
 WHERE a.conference = o.conference;
 --GROUP BY a.name
 --HAVING count(*) = count(o.conference)
---ORDER BY name;
+ORDER BY name;
