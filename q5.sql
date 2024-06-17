@@ -1,3 +1,5 @@
-select name,year
-from authors natural join conferences a1, authors natural join conferences a2
-where a1.name= a2.name and a1.year=a2.year and a1.Subarea= 'ai'
+SELECT name
+FROM authors natural join conferences ac1
+WHERE name NOT IN (SELECT name
+                       where ac1.year>1980 or ac1.area != 'theory')
+ORDER BY name
