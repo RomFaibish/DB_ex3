@@ -1,10 +1,10 @@
-WITH author_year_total AS(
-    SELECT name, year, SUM(totalcount) AS yearCount
+WITH author_area_total AS(
+    SELECT name, year, area, SUM(totalcount) AS areaCount
     FROM authors
-    GROUP BY name, year
+    GROUP BY name, year, area
     )
 SELECT a1.year, a1.name
-FROM author_year_total a1
-GROUP BY year
-HAVING a1.yearCount >=ALL(SELECT yearCount FROM author_year_total a2 WHERE a1.year=a2.year)
+FROM author_area_total a1
+GROUP BY year,name
+HAVING SUM(a1.areaCount)>=ALL(SELECT SUM(a2.areaCount) FROM author_area_total a2 WHERE a1.year=a2.year)
 ORDER BY a1.year, a1.name;
