@@ -1,8 +1,12 @@
-SELECT DISTINCT name,year
+SELECT DISTINCT  name,year
 FROM authors NATURAL JOIN conferences
-WHERE institution LIKE 'Hebrew%' and Subarea = 'ai'
+WHERE (
+SELECT name,year
+FROM
+WHERE institution = 'Hebrew University of Jerusalem' and Subarea = 'ai'
 INTERSECT
-SELECT DISTINCT name,year
-FROM authors NATURAL JOIN conferences
-WHERE institution LIKE 'Hebrew%' and Subarea = 'economics'
+SELECT name,year
+FROM
+WHERE institution = 'Hebrew University of Jerusalem' and Subarea = 'economics'
+)
 ORDER BY name,year
