@@ -1,6 +1,6 @@
 WITH author_year_total(
     SELECT name, year, SUM(totalcount) AS yearCount
-    FROM authors natural join conferences
+    FROM authors
     GROUP BY name, year
     )
 SELECT a1.year, a1.name
