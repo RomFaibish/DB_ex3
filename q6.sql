@@ -9,12 +9,13 @@
 --                       FROM authors
 --                       WHERE name = 'Omri Abend')
 --ORDER BY name ASC;
-SELECT DISTINCT name
+SELECT DISTINCT a1.name
 FROM authors a1
 WHERE NOT EXISTS((SELECT a2.conference, a2.year
-                  FROM author a2)
+                  FROM authors a2
+                  WHERE name = 'Omri Abend')
                   EXCEPT
                   (SELECT a3.conference, a3.year
-                  FROM author a3
+                  FROM authors a3
                   WHERE a1.name = a3.name and a1.year = a3.year))
-ORDER BY name ASC;
+ORDER BY a1.name ASC;
