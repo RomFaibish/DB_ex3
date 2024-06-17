@@ -1,6 +1,6 @@
 WITH author_area_total AS(
     SELECT name, year, area, SUM(totalcount) AS areaCount
-    FROM authors NATURAL JOIN conference
+    FROM authors NATURAL JOIN conferences
     GROUP BY name, year, area
     )
 SELECT a1.year, a1.name
