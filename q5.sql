@@ -1,5 +1,10 @@
-SELECT a.name
-FROM authors a
-WHERE a.name NOT IN (SELECT a2.name FROM authors a2 natural join conferences ac
-where ac.year>1980 or ac.area != 'theory')
-ORDER BY a.name;
+SELECT DISTINCT name
+FROM(
+SELECT name
+FROM authors NATURAL JOIN conferences
+EXCEPT
+SELECT name
+FROM authors NATURAL JOIN conferences
+WHERE year >= 1980 OR area != 'theory'
+) T
+ORDER BY name
